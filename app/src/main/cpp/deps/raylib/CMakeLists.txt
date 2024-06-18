@@ -25,8 +25,12 @@ target_compile_definitions(raylib PRIVATE
 # Add specific compilation options based on target Android architecture
 if(CMAKE_ANDROID_ARCH_ABI STREQUAL "armeabi-v7a")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mfloat-abi=softfp -mfpu=vfpv3-d16")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfloat-abi=softfp -mfpu=vfpv3-d16")
+
 elseif(CMAKE_ANDROID_ARCH_ABI STREQUAL "arm64-v8a")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mfix-cortex-a53-835769")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfix-cortex-a53-835769")
+
 endif()
 
 # Link required libraries to raylib

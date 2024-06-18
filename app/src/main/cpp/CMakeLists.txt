@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.22.1)
 
 # Set standards for C and C++
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CPP_STANDARD 11)
 
 # Set the project name based on the name given on the gradle.properties
 project("${APP_LIB_NAME}")
@@ -16,7 +16,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/deps/raylib)
 add_subdirectory(${CMAKE_SOURCE_DIR}/deps/raymob)
 
 # Fetch all source files for your project (recursively), excluding 'deps' source files
-file(GLOB_RECURSE SOURCES "${CMAKE_SOURCE_DIR}/*.c" "${CMAKE_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE SOURCES "${CMAKE_SOURCE_DIR}/sources/*.c" "${CMAKE_SOURCE_DIR}/sources/*.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "${CMAKE_SOURCE_DIR}/deps/.*")
 
 # Add headers directory for android_native_app_glue.c
