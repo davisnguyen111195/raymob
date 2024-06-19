@@ -4,16 +4,20 @@
 
 #ifndef RAYMOB_SNAKE_HPP
 #define RAYMOB_SNAKE_HPP
-#include <deque>
-#include "raylib.h"
 
+#include "raylib.h"
+#include <raymath.h>
+#include <deque>
 class Snake{
 public:
-    Snake(int cellSize, int cellCount, Color color);
     int m_cellSize;
     int m_cellCount;
     Color m_color;
     std::deque<Vector2> m_body;
+    Vector2 m_direction = {1, 0};
+    Snake(int cellSize, int cellCount, Color color);
+
     void Draw();
+    void Update();
 };
 #endif //RAYMOB_SNAKE_HPP

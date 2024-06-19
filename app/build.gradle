@@ -60,7 +60,7 @@ android {
         externalNativeBuild {
             cmake {
                 arguments "-DAPP_LIB_NAME=${project.properties['app.native_library_name']}"
-                cppFlags += "-std=c++17"
+//                cppFlags += "-std=c++17"
             }
         }
 

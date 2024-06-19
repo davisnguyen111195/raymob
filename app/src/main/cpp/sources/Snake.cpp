@@ -14,15 +14,19 @@ Snake::Snake(int cellSize, int cellCount, Color color) : m_cellSize(cellSize),
 }
 
 void Snake::Draw() {
-    for(int i = 0; i < (int)m_body.size(); i++){
+    for(int i = 0; i < m_body.size(); i++){
         float x = m_body[i].x;
         float y = m_body[i].y;
-        Rectangle segment = Rectangle{x * m_cellSize,
-                                      y * m_cellSize,
-                                      (float)m_cellSize,
-                                      (float)m_cellSize};
+        auto segment = Rectangle{x * (float)m_cellSize,
+                                 y * (float)m_cellSize,
+                                 (float)m_cellSize,
+                                 (float)m_cellSize};
 
         DrawRectangleRounded(segment, 0.5, 6, m_color);
     }
+}
 
+void Snake::Update() {
+    m_body.pop_back();
+    m_body.push_front(Vector2Add(m_body[0], m_direction));
 }
