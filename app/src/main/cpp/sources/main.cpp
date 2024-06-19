@@ -29,12 +29,10 @@
 #include "../headers/logging.h"
 #include "../headers/Food.hpp"
 #include "../headers/Snake.hpp"
+#include "../headers/Game.hpp"
 #include <deque>
 
-Color green = {173, 204, 96, 255};
-Color darkGreen = {43, 51, 24, 255};
-int cellSize = 30;
-int cellCount = 25;
+
 double lastUpdateTime = 0;
 
 bool eventTrigger(double interval) {
@@ -52,8 +50,8 @@ int main() {
     InitWindow(cellSize * cellCount, cellSize * cellCount, "Retro Snake");
 
     SetTargetFPS(60);
-    Food food = Food(cellSize, cellCount, darkGreen);
-    Snake snake = Snake(cellSize, cellCount, darkGreen);
+    Food food = Food();
+    Snake snake = Snake();
     Vector2 touchPosition = {0, 0};
     Rectangle touchArea = {0, 0, 4000, 3000};
 

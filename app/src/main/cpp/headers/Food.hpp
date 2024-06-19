@@ -6,16 +6,16 @@
 #define RAYMOB_FOOD_HPP
 #include "../deps/raymob/raymob.h"
 #include "../deps/raylib/raylib.h"
-
+#include "Game.hpp"
 class Food{
 public:
     Vector2 m_position;
     Texture2D m_texture;
-    int m_cellSize;
-    int m_cellCount;
-    Color m_color;
+//    int m_cellSize;
+//    int m_cellCount;
+//    Color m_color;
 
-    Food(int cellSize, int cellCount, Color color);
+    Food();
     ~Food();
     void Draw();
     Vector2 GenerateRandomPos();

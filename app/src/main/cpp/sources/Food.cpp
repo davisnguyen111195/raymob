@@ -3,10 +3,7 @@
 //
 #include "../headers/Food.hpp"
 
-Food::Food(int cellSize, int cellCount, Color color) :
-                                            m_cellSize(cellSize),
-                                            m_cellCount(cellCount),
-                                            m_color(color) {
+Food::Food(){
     Image image = LoadImage("food.png");
     m_texture = LoadTextureFromImage(image);
     UnloadImage(image);
@@ -18,14 +15,14 @@ Food::~Food(){
 }
 void Food::Draw() {
     DrawTexture(m_texture,
-                m_position.x * m_cellSize,
-                m_position.y * m_cellSize,
+                m_position.x * cellSize,
+                m_position.y * cellSize,
                 WHITE);
 
 }
 
 Vector2 Food::GenerateRandomPos() {
-    float x = GetRandomValue(0, m_cellCount - 1);
-    float y = GetRandomValue(0, m_cellCount - 1);
+    float x = GetRandomValue(0, cellCount - 1);
+    float y = GetRandomValue(0, cellCount - 1);
     return Vector2{x, y};
 }

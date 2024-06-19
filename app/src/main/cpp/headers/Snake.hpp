@@ -7,15 +7,16 @@
 
 #include "raylib.h"
 #include <raymath.h>
+#include "Game.hpp"
 #include <deque>
 class Snake{
 public:
-    int m_cellSize;
-    int m_cellCount;
-    Color m_color;
+//    int m_cellSize;
+//    int m_cellCount;
+//    Color m_color;
     std::deque<Vector2> m_body;
     Vector2 m_direction = {1, 0};
-    Snake(int cellSize, int cellCount, Color color);
+    Snake();
 
     void Draw();
     void Update();

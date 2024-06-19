@@ -3,9 +3,7 @@
 //
 #include "../headers/Snake.hpp"
 
-Snake::Snake(int cellSize, int cellCount, Color color) : m_cellSize(cellSize),
-                                                         m_cellCount(cellCount),
-                                                         m_color(color){
+Snake::Snake(){
     m_body = {
             Vector2{6, 9},
             Vector2{5, 9},
@@ -17,12 +15,12 @@ void Snake::Draw() {
     for(int i = 0; i < m_body.size(); i++){
         float x = m_body[i].x;
         float y = m_body[i].y;
-        auto segment = Rectangle{x * (float)m_cellSize,
-                                 y * (float)m_cellSize,
-                                 (float)m_cellSize,
-                                 (float)m_cellSize};
+        auto segment = Rectangle{x * (float)cellSize,
+                                 y * (float)cellSize,
+                                 (float)cellSize,
+                                 (float)cellSize};
 
-        DrawRectangleRounded(segment, 0.5, 6, m_color);
+        DrawRectangleRounded(segment, 0.5, 6, darkGreen);
     }
 }
 
