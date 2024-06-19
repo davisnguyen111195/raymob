@@ -27,6 +27,7 @@
 #include "raymob.h"
 #include "../headers/logging.h"
 #include "../headers/Food.hpp"
+#include "../headers/Snake.hpp"
 
 Color green = {173, 204, 96, 255};
 Color darkGreen = {43, 51, 24, 255};
@@ -43,11 +44,13 @@ int main() {
 //    LOGD("Width = %d", screen_width);
 //    LOGD("Height = %d", screen_height);
     SetTargetFPS(60);
-    Food fo(cellSize, cellCount, darkGreen);
+    Food fo = Food(cellSize, cellCount, darkGreen);
+    Snake snake = Snake(cellSize, cellCount, darkGreen);
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(green);
         fo.Draw();
+        snake.Draw();
         EndDrawing();
     }
 
